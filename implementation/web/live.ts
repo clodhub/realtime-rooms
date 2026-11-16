@@ -11,7 +11,19 @@ export class Live {
   private retry = 1000;
   private timer = 0;
 
-  constructor(private baseUrl: string, private path: string, private hello: () => string | null, private onMessage: (m: LiveMessage) => void, private onDown: (down: boolean) => void = () => {}) {}
+  private baseUrl: string;
+  private path: string;
+  private hello: () => string | null;
+  private onMessage: (m: LiveMessage) => void;
+  private onDown: (down: boolean) => void;
+
+  constructor(baseUrl: string, path: string, hello: () => string | null, onMessage: (m: LiveMessage) => void, onDown: (down: boolean) => void = () => {}) {
+    this.baseUrl = baseUrl;
+    this.path = path;
+    this.hello = hello;
+    this.onMessage = onMessage;
+    this.onDown = onDown;
+  }
 
   open() {
     if (this.wanted) return;
