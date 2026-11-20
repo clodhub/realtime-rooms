@@ -198,39 +198,7 @@
     },
     {
       "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fkv-asset-handler@0.5.0/0-LICENSE-MIT"
-    },
-    {
-      "executable": false,
       "path": "notices/npm/%40cloudflare%2Funenv-preset@2.16.2/0-LICENSE-MIT"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fvitest-plugin@1.4.4/0-LICENSE-MIT"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fworkerd-darwin-64@1.20261012.1/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fworkerd-darwin-arm64@1.20261012.1/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fworkerd-linux-64@1.20261012.1/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fworkerd-linux-arm64@1.20261012.1/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fworkerd-windows-64@1.20261012.1/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/%40cloudflare%2Fworkers-types@5.20261018.1/0-LICENSE"
     },
     {
       "executable": false,
@@ -586,10 +554,6 @@
     },
     {
       "executable": false,
-      "path": "notices/npm/blake3-wasm@2.1.5/0-LICENSE"
-    },
-    {
-      "executable": false,
       "path": "notices/npm/chai@6.3.0/0-LICENSE"
     },
     {
@@ -690,10 +654,6 @@
     },
     {
       "executable": false,
-      "path": "notices/npm/miniflare@5.20261012.1-beta/0-LICENSE-MIT"
-    },
-    {
-      "executable": false,
       "path": "notices/npm/nanoid@3.3.20/0-LICENSE"
     },
     {
@@ -726,10 +686,6 @@
     },
     {
       "executable": false,
-      "path": "notices/npm/semver@7.8.5/0-LICENSE"
-    },
-    {
-      "executable": false,
       "path": "notices/npm/sharp@0.35.5/0-LICENSE"
     },
     {
@@ -758,10 +714,6 @@
     },
     {
       "executable": false,
-      "path": "notices/npm/tslib@2.8.1/0-LICENSE.txt"
-    },
-    {
-      "executable": false,
       "path": "notices/npm/tsx@4.23.15/0-LICENSE"
     },
     {
@@ -771,14 +723,6 @@
     {
       "executable": false,
       "path": "notices/npm/undici-types@8.9.0/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/undici@7.29.1/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/undici@7.29.1/1-LICENSE"
     },
     {
       "executable": false,
@@ -798,14 +742,6 @@
     },
     {
       "executable": false,
-      "path": "notices/npm/workerd@1.20261012.1/0-LICENSE"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/wrangler@4.151.1/0-LICENSE-MIT"
-    },
-    {
-      "executable": false,
       "path": "notices/npm/ws@8.21.0/0-LICENSE"
     },
     {
@@ -815,10 +751,6 @@
     {
       "executable": false,
       "path": "notices/npm/youch@4.1.0-beta.10/0-LICENSE.md"
-    },
-    {
-      "executable": false,
-      "path": "notices/npm/zod@4.6.5/0-LICENSE"
     },
     {
       "executable": false,
@@ -897,13 +829,13 @@
       "path": "wrangler.jsonc"
     }
   ],
-  "format": 1,
+  "format": 3,
   "identity": {
     "licence": "Apache-2.0",
     "name": "ourapps-ae/realtime-rooms",
     "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
     "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
   "infrastructure": {
     "accounts": [
@@ -936,8 +868,7 @@
     }
   ],
   "upgrade": {
-    "migration": "files-only",
-    "policy": "patch"
+    "migration": "files-only"
   },
   "verification": [
     {

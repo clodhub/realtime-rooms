@@ -142,3 +142,17 @@ it("tells a live connection its new token and keeps it connected", async () => {
   expect((await authed(token)).status).toBe(200);
   ws.close(1000); await new Promise(resolve => setTimeout(resolve, 30));
 });
+
+it("refuses state changes from other sites and answers their reads without CORS headers", async () => {
+  const evil = { origin: "https://evil.example" };
+  expect((await SELF.fetch(base + "/join", { method: "POST", headers: evil, body: JSON.stringify({ name: "E" }) })).status).toBe(403);
+  expect((await SELF.fetch(base + "/display", { method: "POST", headers: evil, body: "{}" })).status).toBe(403);
+  const read = await SELF.fetch(root + "/rooms", { headers: evil });
+  expect(read.status).toBe(200);
+  expect(read.headers.get("access-control-allow-origin")).toBeNull();
+  expect((await SELF.fetch(root + "/rooms/ws", { headers: { ...evil, upgrade: "websocket" } })).status).toBe(403);
+  const local = await SELF.fetch(base + "/join", { method: "POST", headers: { origin: "http://localhost:5173" }, body: JSON.stringify({ name: "L" }) });
+  expect(local.status).toBe(200);
+  expect(local.headers.get("access-control-allow-origin")).toBe("http://localhost:5173");
+  expect((await post("/join", { name: "N" })).status).toBe(200);
+});

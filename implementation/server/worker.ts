@@ -10,6 +10,8 @@ export function createWorker(settings: Settings, roomIds: readonly string[], ser
       const cors: Record<string, string> = { vary: "Origin" };
       if (origin && allowed(origin, env)) Object.assign(cors, { "access-control-allow-origin": origin, "access-control-allow-methods": "GET, POST, OPTIONS", "access-control-allow-headers": "content-type, authorization", "access-control-max-age": "86400", "access-control-expose-headers": "x-rotated-token" });
       if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
+      // A browser on another site may send requests but not read the answers; one that would change state is refused.
+      if (origin && !allowed(origin, env) && request.method !== "GET" && request.method !== "HEAD") return new Response("Forbidden", { status: 403, headers: cors });
       if (request.headers.get("upgrade")?.toLowerCase() === "websocket" && origin && !allowed(origin, env)) return new Response("Forbidden", { status: 403 });
       const url = new URL(request.url);
       let response: Response | null = null;
