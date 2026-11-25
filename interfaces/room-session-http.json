@@ -755,5 +755,5 @@
       }
     }
   },
-  "x-ourapps-modules": {}
+  "x-clodhub-modules": {}
 }

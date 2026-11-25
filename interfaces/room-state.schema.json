@@ -190,5 +190,5 @@
       "$ref": "#/$defs/roomLine"
     }
   ],
-  "x-ourapps-modules": {}
+  "x-clodhub-modules": {}
 }

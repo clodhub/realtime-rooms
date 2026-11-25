@@ -7,12 +7,12 @@
   "focus": "rooms",
   "definitions": [
     {
-      "id": "ourapps-ae.realtime-rooms",
+      "id": "clodhub.realtime-rooms",
       "name": "Realtime rooms",
       "kind": "component",
       "status": "example",
-      "package": "ourapps-ae/realtime-rooms",
-      "version": "0.12.0",
+      "package": "clodhub/realtime-rooms",
+      "version": "0.13.0",
       "ports": [
         {
           "id": "game-adapter",
@@ -118,7 +118,7 @@
     {
       "id": "rooms",
       "name": "Rooms",
-      "definition": "ourapps-ae.realtime-rooms",
+      "definition": "clodhub.realtime-rooms",
       "configuration": {}
     },
     {

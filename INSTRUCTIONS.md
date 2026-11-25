@@ -1,6 +1,6 @@
 # Realtime rooms instructions
 
-Package `ourapps-ae/realtime-rooms` version `0.12.0`. It provides `room-session` (type `ae/room-session`, version 1.0.0) and requires `game-adapter` (type `ae/game-adapter`, version 1.0.0) and `guest-identity` (type `ae/guest-identity`, version 1.0.0).
+Package `clodhub/realtime-rooms` version `0.13.0`. It provides `room-session` (type `ae/room-session`, version 1.0.0) and requires `game-adapter` (type `ae/game-adapter`, version 1.0.0) and `guest-identity` (type `ae/guest-identity`, version 1.0.0).
 
 ## For the agent
 
@@ -31,6 +31,6 @@ From the component directory (needs `npm ci --ignore-scripts --no-audit --no-fun
 - `node tests/request-body.mjs`
 - `npm run types`, then `npm run typecheck`
 - `node --test tests/migration.test.ts tests/interfaces.test.ts` (needs only node)
-- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch ourapps-ae/realtime-rooms@VERSION --store STORE --from https://ourapps.app` and runs its suites.
+- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch clodhub/realtime-rooms@VERSION --store STORE --from https://clodhub.com` and runs its suites.
 
 Against a deployed worker: join a room, take an action, close the connection and reconnect; the player token should still work and the private value should still show.

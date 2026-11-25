@@ -832,10 +832,10 @@
   "format": 3,
   "identity": {
     "licence": "Apache-2.0",
-    "name": "ourapps-ae/realtime-rooms",
+    "name": "clodhub/realtime-rooms",
     "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
     "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
-    "version": "0.12.0"
+    "version": "0.13.0"
   },
   "infrastructure": {
     "accounts": [
