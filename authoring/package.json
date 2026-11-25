@@ -83,7 +83,7 @@
   },
   "facilities": [
     {
-      "description": "Persistent private game rooms and native transports",
+      "description": "Live shared rooms on the server: people join by name, each sees only what they may see, every change reaches every screen at once, and nothing is lost on a restart.",
       "id": "rooms"
     }
   ],
@@ -835,7 +835,7 @@
     "name": "ourapps-ae/realtime-rooms",
     "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
     "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
-    "version": "0.11.0"
+    "version": "0.12.0"
   },
   "infrastructure": {
     "accounts": [
