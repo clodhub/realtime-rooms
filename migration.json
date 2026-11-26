@@ -4,7 +4,7 @@
     {
       "id": "rooms",
       "schema": {
-        "name": "ae/room-state",
+        "name": "com.clodhub/room-state",
         "version": "1.0.0",
         "file": "interfaces/room-state.schema.json"
       },

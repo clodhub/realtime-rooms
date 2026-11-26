@@ -5,12 +5,12 @@ import shutil
 import tempfile
 import unittest
 
-from aepm.bundle import pack, read_package
-from aepm.io import load, write
-from aepm.model import AepmError, canonical, digest
-from aepm.test_identities import generate
-from aepm.trust import sign, verify_package
-from aepm.verification import review_package
+from clod.bundle import pack, read_package
+from clod.io import load, write
+from clod.model import ClodError, canonical, digest
+from clod.test_identities import generate
+from clod.trust import sign, verify_package
+from clod.verification import review_package
 
 
 class PackagedReviewTests(unittest.TestCase):
@@ -53,7 +53,7 @@ class PackagedReviewTests(unittest.TestCase):
                         self.assertEqual(types["reason"], "undeclared-tool", report)
                     else:
                         self.assertEqual(report["summary"]["required-local"], "passed", report)
-                        evidence = os.environ.get("AEPM_REVIEW_EVIDENCE")
+                        evidence = os.environ.get("CLOD_REVIEW_EVIDENCE")
                         if evidence:
                             write(Path(evidence), report)
                     guardian = {"format": 1, "role": "guardian", "keyId": "local-guardian", **ref,
@@ -63,7 +63,7 @@ class PackagedReviewTests(unittest.TestCase):
                     write(statements / "guardian.json", guardian)
                     (statements / "guardian.sig").write_bytes(sign(guardian, "guardian", root / "identities/guardian.pem"))
                     if broken:
-                        with self.assertRaises(AepmError):
+                        with self.assertRaises(ClodError):
                             verify_package(ref, store, policy_path)
                     else:
                         verify_package(ref, store, policy_path)

@@ -19,14 +19,14 @@ const documentOf = (type: string) => {
 // OpenRPC method names, without a "Owner." qualifier.
 const methodNames = (doc: { methods: { name: string }[] }) => new Set(doc.methods.map((m) => m.name.split(".").pop()));
 
-test("every GameAdapter method a room calls is a method of the required ae/game-adapter document", () => {
-  const required = documentOf("ae/game-adapter");
+test("every GameAdapter method a room calls is a method of the required com.clodhub/game-adapter document", () => {
+  const required = documentOf("com.clodhub/game-adapter");
   const names = methodNames(required);
   for (const name of declared("GameAdapter")) assert.ok(names.has(name), name);
 });
 
-test("every IdentityService method a room calls is a method of the required ae/guest-identity document", () => {
-  const required = documentOf("ae/guest-identity");
+test("every IdentityService method a room calls is a method of the required com.clodhub/guest-identity document", () => {
+  const required = documentOf("com.clodhub/guest-identity");
   const names = methodNames(required);
   for (const name of declared("IdentityService")) assert.ok(names.has(name), name);
   assert.match(read("implementation/server/adapter.ts"), /export type Services = \{ identity: IdentityService;/);
@@ -37,14 +37,14 @@ test("every IdentityService method a room calls is a method of the required ae/g
 test("room-session.json (OpenRPC) names exactly what the implementation exports", () => {
   const doc = json("interfaces/room-session.json");
   assert.equal(doc.openrpc, "1.3.2");
-  assert.equal(doc.info.title, "ae/room-session");
+  assert.equal(doc.info.title, "com.clodhub/room-session");
   const sources: Record<string, string> = {
     typescript: read("implementation/server/index.ts") + read("implementation/server/worker.ts") + read("implementation/web/live.ts"),
     // a method tagged with one platform is exported by that platform's entry module only
     server: read("implementation/server/index.ts") + read("implementation/server/worker.ts"),
     web: read("implementation/web/live.ts"),
     swift: read("implementation/apple/Sources/LiveConnection.swift"),
-    kotlin: read("implementation/android/src/main/java/ae/rooms/RoomTransport.kt"),
+    kotlin: read("implementation/android/src/main/java/com/clodhub/rooms/RoomTransport.kt"),
   };
   for (const method of doc.methods) {
     const [owner, member] = method.name.includes(".") ? method.name.split(".") : [null, method.name];
@@ -63,7 +63,7 @@ test("room-session.json (OpenRPC) names exactly what the implementation exports"
 test("room-session-http.json (OpenAPI) routes are the routes the room and worker serve", () => {
   const doc = json("interfaces/room-session-http.json");
   assert.equal(doc.openapi, "3.1.1");
-  assert.equal(doc.info.title, "ae/room-session");
+  assert.equal(doc.info.title, "com.clodhub/room-session");
   const room = read("implementation/server/index.ts");
   const worker = read("implementation/server/worker.ts");
   const served = new Set<string>();
@@ -79,7 +79,7 @@ test("room-session-http.json (OpenAPI) routes are the routes the room and worker
 test("room-session-live.json (AsyncAPI) messages are the ones the room sends and reads", () => {
   const doc = json("interfaces/room-session-live.json");
   assert.equal(doc.asyncapi, "3.1.0");
-  assert.equal(doc.info.title, "ae/room-session");
+  assert.equal(doc.info.title, "com.clodhub/room-session");
   const room = read("implementation/server/index.ts");
   for (const type of ["view", "token", "error"]) assert.match(room, new RegExp(`type: "${type}"`), type);
   assert.match(room, /m\.type === "hello"/);
@@ -91,14 +91,14 @@ test("room-session-live.json (AsyncAPI) messages are the ones the room sends and
 test("the manifest requires guest-identity as a port", { skip: !existsSync(new URL("../component.json", import.meta.url)) && "component.json is not in this copy" }, () => {
   const manifest = json("component.json");
   const port = manifest.requires.find((item: { id: string }) => item.id === "guest-identity");
-  assert.deepEqual({ ...port, path: undefined }, { id: "guest-identity", type: "ae/guest-identity", version: "1.0.0", path: undefined });
-  assert.equal(json(port.path).info.title, "ae/guest-identity");
+  assert.deepEqual({ ...port, path: undefined }, { id: "guest-identity", type: "com.clodhub/guest-identity", version: "1.0.0", path: undefined });
+  assert.equal(json(port.path).info.title, "com.clodhub/guest-identity");
 });
 
 test("the directory requests a room and the worker make are paths of room-directory's OpenAPI document", () => {
   const doc = json("interfaces/required-room-directory-http.json");
   assert.equal(doc.openapi, "3.1.1");
-  assert.equal(doc.info.title, "ae/room-directory");
+  assert.equal(doc.info.title, "com.clodhub/room-directory");
   assert.ok(doc.paths["/"].post && doc.paths["/"].get && doc.paths["/ws"].get);
   assert.match(read("implementation/server/index.ts"), /DIRECTORY\.getByName\("home"\)\.fetch\("https:\/\/directory\/", \{ method: "POST"/);
   assert.match(read("implementation/server/worker.ts"), /new Request\("https:\/\/directory\/ws"/);

@@ -32,7 +32,7 @@ test("tampered, miscounted, duplicate or unsupported input is rejected", () => {
   assert.throws(() => importAll(text.replace('"value":3', '"value":4')), /checksum mismatch for room table-b/);
   assert.throws(() => importAll(text.replace('"rooms":2', '"rooms":3')), /room count mismatch/);
   assert.throws(() => importAll(text, 2), /unsupported storage layout 1/);
-  assert.throws(() => importAll("{}\n"), /not an ae\/room-state/);
+  assert.throws(() => importAll("{}\n"), /not a com\.clodhub\/room-state/);
 });
 
 test("verification detects a missing or changed record", () => {

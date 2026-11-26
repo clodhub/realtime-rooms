@@ -1,4 +1,4 @@
-package ae.rooms
+package com.clodhub.rooms
 
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay

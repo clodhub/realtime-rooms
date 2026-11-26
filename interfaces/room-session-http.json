@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.1",
   "info": {
-    "title": "ae/room-session",
+    "title": "com.clodhub/room-session",
     "version": "1.0.0",
     "description": "HTTP routes of the room service (createWorker in front of the Room objects). Every response carries CORS headers for allowed origins, which expose x-rotated-token; OPTIONS answers 204. Requests authenticate with Authorization: Bearer <token>. When guest-identity rotates a token the response carries x-rotated-token and the device keeps that token from then on; the replaced token works for one more rotation period. Unknown routes answer 404 badRequest. The application's own service routes run before /rooms and /r/.",
     "license": {

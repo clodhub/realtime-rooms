@@ -1,7 +1,7 @@
 {
   "asyncapi": "3.1.0",
   "info": {
-    "title": "ae/room-session",
+    "title": "com.clodhub/room-session",
     "version": "1.0.0",
     "description": "Live messages of the room service, from the server's side: receive is what clients send, send is what the server sends. Text frames; JSON messages except ping and pong. The server answers ping with pong without waking the room. A room connection is closed with 4000 when no hello arrives within 60 seconds, 4001 after an authentication failure, 4002 after 75 seconds of silence, and 1000 when the player has left. The client closing with 1000 or 1001 counts as a deliberate departure.",
     "license": {

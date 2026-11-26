@@ -1,6 +1,6 @@
 # Realtime rooms instructions
 
-Package `clodhub/realtime-rooms` version `0.13.0`. It provides `room-session` (type `ae/room-session`, version 1.0.0) and requires `game-adapter` (type `ae/game-adapter`, version 1.0.0) and `guest-identity` (type `ae/guest-identity`, version 1.0.0).
+Package `pkg:clod/com.clodhub/realtime-rooms` version `0.14.0`. It provides `room-session` (type `com.clodhub/room-session`, version 1.0.0) and requires `game-adapter` (type `com.clodhub/game-adapter`, version 1.0.0) and `guest-identity` (type `com.clodhub/guest-identity`, version 1.0.0).
 
 ## For the agent
 
@@ -12,7 +12,7 @@ Package `clodhub/realtime-rooms` version `0.13.0`. It provides `room-session` (t
 
 ## For the developer
 
-- Install paths: `components/realtime-rooms/server/{index,worker,adapter}.ts`, `components/realtime-rooms/web/live.ts`, `components/realtime-rooms/apple/Sources/LiveConnection.swift`, `components/realtime-rooms/android/src/main/java/ae/rooms/RoomTransport.kt`.
+- Install paths: `components/realtime-rooms/server/{index,worker,adapter}.ts`, `components/realtime-rooms/web/live.ts`, `components/realtime-rooms/apple/Sources/LiveConnection.swift`, `components/realtime-rooms/android/src/main/java/com/clodhub/rooms/RoomTransport.kt`.
 - Implement `GameAdapter<S,A,V,O>` (`server/adapter.ts`): it owns all state, rules, options and per-viewer redaction. Serialisable state must include any game memory. `restore(saved, schema)` rejects saved state it cannot read.
 - Wire the worker as `fixtures/worker.ts` does: export `Room extends createRoomClass(adapter, { identity: createIdentityApi(identitySettings) }, settings)` (`createIdentityApi` from `components/guest-identity/server/identity.ts`; `services.identity` is required) and `Directory extends createDirectoryClass(DurableObject, { roomIds, maxConnections })` (the latter imported from `components/room-directory/server/directory.ts`), then `export default createWorker(settings, roomIds)`. `fixtures/worker.ts` uses small stand-ins for `Directory` and for the identity service so this package tests alone.
 - Cloudflare: bind `ROOM` and `DIRECTORY` Durable Objects and declare `new_sqlite_classes` in a migration (see `wrangler.jsonc`). Set `CODE_VERSION` on each deploy so running objects restart onto the new code. Set `WEB_ORIGINS` for extra allowed origins.
@@ -31,6 +31,6 @@ From the component directory (needs `npm ci --ignore-scripts --no-audit --no-fun
 - `node tests/request-body.mjs`
 - `npm run types`, then `npm run typecheck`
 - `node --test tests/migration.test.ts tests/interfaces.test.ts` (needs only node)
-- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch clodhub/realtime-rooms@VERSION --store STORE --from https://clodhub.com` and runs its suites.
+- `python3 -m clod review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m clod fetch realtime-rooms@VERSION --store STORE --from https://clodhub.com` and runs its suites.
 
 Against a deployed worker: join a room, take an action, close the connection and reconnect; the player token should still work and the private value should still show.

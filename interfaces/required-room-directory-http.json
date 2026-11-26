@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.1",
   "info": {
-    "title": "ae/room-directory",
+    "title": "com.clodhub/room-directory",
     "version": "1.0.0",
     "description": "Requests the Directory object answers (env.DIRECTORY.getByName(\"home\")). Rooms post their entry when their players or status change; the room service's worker reads the list for GET /rooms and forwards /rooms/ws. Any path other than /ws is the list.",
     "license": {

@@ -1,7 +1,7 @@
 {
   "openrpc": "1.3.2",
   "info": {
-    "title": "ae/guest-identity",
+    "title": "com.clodhub/guest-identity",
     "version": "1.0.0",
     "description": "Guests known by the name they type, with private bearer tokens that rotate. Pure functions over a plain book (server/identity.ts, storage belongs to the caller), the same functions with the settings bound once (createIdentityApi, what seating and realtime-rooms call), and a device-side store of the name and per-slot tokens (web/identity-store.ts, Swift and Kotlin IdentityStore with NameRules). Methods are tagged with the languages that provide them. Over the wire a client sends {name}, the server answers {token, playerId}, later requests carry Authorization: Bearer <token>, and a response may carry a rotated token.",
     "license": {
@@ -666,7 +666,7 @@
     },
     {
       "name": "exportAll",
-      "description": "One JSON record per line (ae/identity-record 1.0.0), ordered by id, newline-terminated; empty for an empty book.",
+      "description": "One JSON record per line (com.clodhub/identity-record 1.0.0), ordered by id, newline-terminated; empty for an empty book.",
       "params": [
         {
           "name": "book",
@@ -1257,7 +1257,7 @@
         "description": "Any of the settings; the rest take their defaults."
       },
       "IdentityRecord": {
-        "$comment": "Same shape as ae/identity-record 1.0.0 (interfaces/identity-record.schema.json).",
+        "$comment": "Same shape as com.clodhub/identity-record 1.0.0 (interfaces/identity-record.schema.json).",
         "type": "object",
         "properties": {
           "id": {

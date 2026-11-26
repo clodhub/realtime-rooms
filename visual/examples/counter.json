@@ -7,19 +7,19 @@
   "focus": "rooms",
   "definitions": [
     {
-      "id": "clodhub.realtime-rooms",
+      "id": "com.clodhub.realtime-rooms",
       "name": "Realtime rooms",
       "kind": "component",
       "status": "example",
-      "package": "clodhub/realtime-rooms",
-      "version": "0.13.0",
+      "package": "pkg:clod/com.clodhub/realtime-rooms",
+      "version": "0.14.0",
       "ports": [
         {
           "id": "game-adapter",
           "name": "Game adapter",
           "direction": "input",
           "kind": "interface",
-          "type": "ae/game-adapter",
+          "type": "com.clodhub/game-adapter",
           "version": "1.0.0",
           "required": true,
           "cardinality": "one"
@@ -29,7 +29,7 @@
           "name": "Guest identity",
           "direction": "input",
           "kind": "interface",
-          "type": "ae/guest-identity",
+          "type": "com.clodhub/guest-identity",
           "version": "1.0.0",
           "required": true,
           "cardinality": "one"
@@ -39,7 +39,7 @@
           "name": "Room session",
           "direction": "output",
           "kind": "interface",
-          "type": "ae/room-session",
+          "type": "com.clodhub/room-session",
           "version": "1.0.0"
         }
       ],
@@ -57,7 +57,7 @@
           "name": "Counter rules",
           "direction": "output",
           "kind": "interface",
-          "type": "ae/game-adapter",
+          "type": "com.clodhub/game-adapter",
           "version": "1.0.0"
         }
       ],
@@ -75,7 +75,7 @@
           "name": "Guest identity",
           "direction": "output",
           "kind": "interface",
-          "type": "ae/guest-identity",
+          "type": "com.clodhub/guest-identity",
           "version": "1.0.0"
         }
       ],
@@ -93,7 +93,7 @@
           "name": "Room session",
           "direction": "input",
           "kind": "interface",
-          "type": "ae/room-session",
+          "type": "com.clodhub/room-session",
           "version": "1.0.0",
           "required": true,
           "cardinality": "one"
@@ -118,7 +118,7 @@
     {
       "id": "rooms",
       "name": "Rooms",
-      "definition": "clodhub.realtime-rooms",
+      "definition": "com.clodhub.realtime-rooms",
       "configuration": {}
     },
     {

@@ -1,9 +1,9 @@
 {
   "artefacts": [
     {
-      "destination": "components/realtime-rooms/android/src/main/java/ae/rooms/RoomTransport.kt",
+      "destination": "components/realtime-rooms/android/src/main/java/com/clodhub/rooms/RoomTransport.kt",
       "executable": false,
-      "source": "implementation/android/src/main/java/ae/rooms/RoomTransport.kt",
+      "source": "implementation/android/src/main/java/com/clodhub/rooms/RoomTransport.kt",
       "template": false
     },
     {
@@ -50,7 +50,7 @@
     ],
     "secrets": [],
     "writes": [
-      "components/realtime-rooms/android/src/main/java/ae/rooms/RoomTransport.kt",
+      "components/realtime-rooms/android/src/main/java/com/clodhub/rooms/RoomTransport.kt",
       "components/realtime-rooms/apple/Sources/LiveConnection.swift",
       "components/realtime-rooms/server/adapter.ts",
       "components/realtime-rooms/server/index.ts",
@@ -138,7 +138,7 @@
     },
     {
       "executable": false,
-      "path": "implementation/android/src/main/java/ae/rooms/RoomTransport.kt"
+      "path": "implementation/android/src/main/java/com/clodhub/rooms/RoomTransport.kt"
     },
     {
       "executable": false,
@@ -832,10 +832,10 @@
   "format": 3,
   "identity": {
     "licence": "Apache-2.0",
-    "name": "clodhub/realtime-rooms",
+    "name": "pkg:clod/com.clodhub/realtime-rooms",
     "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
     "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
-    "version": "0.13.0"
+    "version": "0.14.0"
   },
   "infrastructure": {
     "accounts": [
@@ -849,7 +849,7 @@
     {
       "id": "room-session",
       "path": "interfaces/room-session.json",
-      "type": "ae/room-session",
+      "type": "com.clodhub/room-session",
       "version": "1.0.0"
     }
   ],
@@ -857,13 +857,13 @@
     {
       "id": "game-adapter",
       "path": "interfaces/required-game-adapter.json",
-      "type": "ae/game-adapter",
+      "type": "com.clodhub/game-adapter",
       "version": "1.0.0"
     },
     {
       "id": "guest-identity",
       "path": "interfaces/required-guest-identity.json",
-      "type": "ae/guest-identity",
+      "type": "com.clodhub/guest-identity",
       "version": "1.0.0"
     }
   ],
